@@ -39,15 +39,32 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celda_pantalla_prin" id="N9v-nG-3iQ">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celda_pantalla_prin" id="N9v-nG-3iQ" customClass="VistaDeCelda" customModule="parcial2_0" customModuleProvider="target">
                                 <rect key="frame" x="67" y="0.0" width="259" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fW7-L5-hFm">
                                     <rect key="frame" x="0.0" y="0.0" width="259" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVI-TL-4E2">
+                                            <rect key="frame" x="108" y="53" width="43" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="EVI-TL-4E2" secondAttribute="trailing" constant="108" id="79l-Bk-gib"/>
+                                        <constraint firstItem="EVI-TL-4E2" firstAttribute="top" secondItem="fW7-L5-hFm" secondAttribute="top" constant="53" id="Gsb-Jx-KgV"/>
+                                        <constraint firstAttribute="bottom" secondItem="EVI-TL-4E2" secondAttribute="bottom" constant="53" id="Ug3-Bn-wpt"/>
+                                        <constraint firstItem="EVI-TL-4E2" firstAttribute="leading" secondItem="fW7-L5-hFm" secondAttribute="leading" constant="108" id="dFu-zv-V05"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <size key="customSize" width="259" height="128"/>
+                                <connections>
+                                    <outlet property="etiqueta" destination="EVI-TL-4E2" id="aXK-gm-NGV"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

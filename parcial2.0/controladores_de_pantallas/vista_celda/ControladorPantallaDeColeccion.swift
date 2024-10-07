@@ -45,15 +45,24 @@ class ControladorPantallaDeColeccion: UICollectionViewController {
         // #warning Incomplete implementation, return the number of items
         return 5 * 6
     }
-
+//funcion para identificar y crear cada una de las celdas creadas en el crontoller
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let celda = collectionView.dequeueReusableCell(withReuseIdentifier: identificador_de_celda, for: indexPath)
+        let celda: VistaDeCelda = collectionView.dequeueReusableCell(withReuseIdentifier: identificador_de_celda, for: indexPath) as! VistaDeCelda
     
         // Configure the cell
+        
+        
+        
+        celda.etiqueta.text = "\(indexPath)"
         celda.backgroundColor = .purple
         return celda
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        print("se seleccionó la celda \(indexPath)")
+    }
+    
+    
     // MARK: UICollectionViewDelegate
 
     /*

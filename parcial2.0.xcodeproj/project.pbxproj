@@ -16,6 +16,7 @@
 		FB22345B2CB4332500810EB4 /* parcial2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22345A2CB4332500810EB4 /* parcial2_0UITests.swift */; };
 		FB22345D2CB4332500810EB4 /* parcial2_0UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22345C2CB4332500810EB4 /* parcial2_0UITestsLaunchTests.swift */; };
 		FB22346C2CB4375E00810EB4 /* ControladorPantallaDeColeccion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22346B2CB4375E00810EB4 /* ControladorPantallaDeColeccion.swift */; };
+		FB22346E2CB43D8200810EB4 /* VistaDeCelda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22346D2CB43D8200810EB4 /* VistaDeCelda.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FB22345A2CB4332500810EB4 /* parcial2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parcial2_0UITests.swift; sourceTree = "<group>"; };
 		FB22345C2CB4332500810EB4 /* parcial2_0UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parcial2_0UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FB22346B2CB4375E00810EB4 /* ControladorPantallaDeColeccion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControladorPantallaDeColeccion.swift; sourceTree = "<group>"; };
+		FB22346D2CB43D8200810EB4 /* VistaDeCelda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaDeCelda.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				FB22346B2CB4375E00810EB4 /* ControladorPantallaDeColeccion.swift */,
+				FB22346D2CB43D8200810EB4 /* VistaDeCelda.swift */,
 			);
 			path = vista_celda;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				FB22346C2CB4375E00810EB4 /* ControladorPantallaDeColeccion.swift in Sources */,
 				FB22343A2CB4332300810EB4 /* AppDelegate.swift in Sources */,
 				FB22343C2CB4332300810EB4 /* SceneDelegate.swift in Sources */,
+				FB22346E2CB43D8200810EB4 /* VistaDeCelda.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
