@@ -10,7 +10,7 @@ struct Post: Codable{
     //decodable
     //encodable
     //codable
-    //aqui jalaremos los datos de la api
+ 
     var id: Int
     var userID: Int
     var title: String

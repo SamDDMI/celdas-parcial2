@@ -19,18 +19,25 @@ class ControladorPantallaDeColeccion: UICollectionViewController {
         super.viewDidLoad()
         
         let ubicacion = URL(string: url_de_publicaciones)!
-        URLSession.shared.dataTask(with: ubicacion){(datos, respuesta, error) in do {
-            
-            if let publicaciones_recibidas = datos{
-                let prueba_de_interpretacion_de_datos = try JSONDecoder().decode([Post].self, from: publicaciones_recibidas)
-                DispatchQueue.main.async{self.lista_de_publicaciones = prueba_de_interpretacion_de_datos}
+        URLSession.shared.dataTask(with: ubicacion){
+            (datos, respuesta, error) in do {
+                
+                if let publicaciones_recibidas = datos{
+                    let prueba_de_interpretacion_de_datos = try JSONDecoder().decode([Post].self, from: publicaciones_recibidas)
+                    
+                    self.lista_de_publicaciones = prueba_de_interpretacion_de_datos
+                    DispatchQueue.main.async(){
+                        self.collectionView.reloadData()
+                    }
+                    
+                }
+                else{
+                    print(respuesta)
+                }
+                
+            } catch
+            {print("error")
             }
-            else{
-                print("no se recibieron datos")
-            }
-            
-        } catch {print("error")
-        }
         }.resume()
         
     }
@@ -55,7 +62,7 @@ class ControladorPantallaDeColeccion: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 5 * 6
+        return self.lista_de_publicaciones.count
     }
     //funcion para identificar y crear cada una de las celdas creadas en el crontoller
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,13 +72,19 @@ class ControladorPantallaDeColeccion: UICollectionViewController {
         
         
         
-        celda.etiqueta.text = "\(indexPath)"
-        celda.backgroundColor = .purple
+        celda.etiqueta.text = self.lista_de_publicaciones[indexPath.item].title
+               celda.cuerpo.text = self.lista_de_publicaciones[indexPath.item].body
         return celda
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         print("se seleccionó la celda \(indexPath)")
+        
+        let pantalla_de_post = storyboard?.instantiateViewController(withIdentifier: "PantallaPublicacion") as! Post
+                
+                self.navigationController?.pushViewController(pantalla_de_post, animated: true)
+                
+                print(self.navigationController)
     }
     
     

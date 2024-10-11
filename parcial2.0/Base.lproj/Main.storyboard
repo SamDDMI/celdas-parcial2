@@ -66,6 +66,33 @@
                                     <outlet property="etiqueta" destination="EVI-TL-4E2" id="aXK-gm-NGV"/>
                                 </connections>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celda_pantalla" id="1wL-hi-six" userLabel="celda" customClass="VistaDeCelda" customModule="parcial2_0" customModuleProvider="target">
+                                <rect key="frame" x="67" y="138" width="259" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wXd-En-hn0">
+                                    <rect key="frame" x="0.0" y="0.0" width="259" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLv-b5-aoU">
+                                            <rect key="frame" x="108" y="53" width="43" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mLv-b5-aoU" firstAttribute="leading" secondItem="wXd-En-hn0" secondAttribute="leading" constant="108" id="4fA-N7-K9K"/>
+                                        <constraint firstAttribute="trailing" secondItem="mLv-b5-aoU" secondAttribute="trailing" constant="108" id="Mu1-ni-McJ"/>
+                                        <constraint firstItem="mLv-b5-aoU" firstAttribute="top" secondItem="wXd-En-hn0" secondAttribute="top" constant="53" id="uwN-CY-sMh"/>
+                                        <constraint firstAttribute="bottom" secondItem="mLv-b5-aoU" secondAttribute="bottom" constant="53" id="zBX-60-Wkb"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <size key="customSize" width="259" height="128"/>
+                                <connections>
+                                    <outlet property="cuerpo" destination="mLv-b5-aoU" id="DPr-Lz-LYS"/>
+                                </connections>
+                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="BVG-xz-JBp" id="qdN-em-lEH"/>
