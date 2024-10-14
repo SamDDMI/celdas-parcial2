@@ -16,7 +16,8 @@ class ControladorPantallaDeColeccion: UICollectionViewController{
     
     private let identificador_de_celda = "celda_pantalla_principal"
 
-
+    let proveedor_publicaciones = ProveedorDePublicaciones.autoreferencia
+    
     @IBOutlet weak var outlet_a_la_vista: UICollectionView!
     
     override func viewDidLoad(){
