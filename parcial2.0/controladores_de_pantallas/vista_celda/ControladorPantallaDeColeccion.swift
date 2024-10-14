@@ -7,39 +7,40 @@
 
 import UIKit
 
-private let identificador_de_celda = "celda_pantalla_prin"
+//private let identificador_de_celda = "celda_pantalla_principal"
 
-class ControladorPantallaDeColeccion: UICollectionViewController {
-    
+class ControladorPantallaDeColeccion: UICollectionViewController{
     private var lista_de_publicaciones: [Post] = []
-    private let url_de_publicaciones = "https://jsonplaceholder.typicode.com/posts"
+    let url_de_publicaciones = "https://jsonplaceholder.typicode.com/posts"
+
     
+    private let identificador_de_celda = "celda_pantalla_principal"
+
+
+    @IBOutlet weak var outlet_a_la_vista: UICollectionView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
         let ubicacion = URL(string: url_de_publicaciones)!
-        URLSession.shared.dataTask(with: ubicacion){
+        URLSession.shared.dataTask(with: ubicacion) {
             (datos, respuesta, error) in do {
-                
                 if let publicaciones_recibidas = datos{
                     let prueba_de_interpretacion_de_datos = try JSONDecoder().decode([Post].self, from: publicaciones_recibidas)
                     
                     self.lista_de_publicaciones = prueba_de_interpretacion_de_datos
-                    DispatchQueue.main.async(){
+                    
+                    DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
-                    
                 }
-                else{
+                else {
                     print(respuesta)
                 }
-                
-            } catch
-            {print("error")
+            } catch {
+                print("Error")
             }
         }.resume()
-        
     }
     
     /*
@@ -53,40 +54,44 @@ class ControladorPantallaDeColeccion: UICollectionViewController {
      */
     
     // MARK: UICollectionViewDataSource
-    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    
+
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return self.lista_de_publicaciones.count
     }
-    //funcion para identificar y crear cada una de las celdas creadas en el crontoller
+
+    // Funcion para identificar y crear cada una de las celdas creadas en el Controller
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let celda: VistaDeCelda = collectionView.dequeueReusableCell(withReuseIdentifier: identificador_de_celda, for: indexPath) as! VistaDeCelda
-        
+    
         // Configure the cell
-        
-        
+        //celda.tintColor = UIColor.green
         
         celda.etiqueta.text = self.lista_de_publicaciones[indexPath.item].title
-               celda.cuerpo.text = self.lista_de_publicaciones[indexPath.item].body
+        celda.cuerpo.text = self.lista_de_publicaciones[indexPath.item].body
+
+        // print(self.lista_de_publicaciones)
+        
         return celda
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        print("se seleccionó la celda \(indexPath)")
-        
-        let pantalla_de_post = storyboard?.instantiateViewController(withIdentifier: "PantallaPublicacion") as! Post
-                
-                self.navigationController?.pushViewController(pantalla_de_post, animated: true)
-                
-                print(self.navigationController)
-    }
+
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Se selecciono la celda\(indexPath)")
+        
+        let pantalla_de_post = storyboard?.instantiateViewController(withIdentifier: "PantallaPublicacion") as! ControladorPantallaDeColeccion
+        
+        self.navigationController?.pushViewController(pantalla_de_post, animated: true)
+        
+        print(self.navigationController)
+
+    }
     
     // MARK: UICollectionViewDelegate
     
